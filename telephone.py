@@ -6,7 +6,7 @@ num_char_matrix = { \
     '7': ['p','q','r','s'], '8': ['t','u','v'], '9': ['w','x','y','z'] \
 }
 
-def permutate_number(number: str, idx: int, word: str):
+def permutate_number(number:str, idx:int=0, word:str=''):
     if idx == len(number):
         print(word)
     else:
@@ -14,7 +14,7 @@ def permutate_number(number: str, idx: int, word: str):
         for letter in num_char_matrix[digit]:
             permutate_number(number, idx+1, word+letter)
 
-def valid_number(number: str):
+def valid_number(number:str):
     for digit in number:
         if digit not in num_char_matrix:
             return False
@@ -26,4 +26,4 @@ if __name__ == '__main__':
     if not valid_number(number):
         print('Invalid number for word.')
     else:
-        permutate_number(number, 0, '')
+        permutate_number(number)
